@@ -1,23 +1,17 @@
-package org.example
+package org.example.functions
 
 fun printMessageForGameEnd() {
     println()
     println("⚾게임을 종료합니다")
     println()
 }
-fun printExceptionHandlingMessageForHomeMenuInput() {
-    println("⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾")
-    println("올바른 숫자를 입력해주세요")
-    println("1. 게임 시작하기 2. 게임 기록 보기 3. 종료하기")
-    println("⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾")
-}
-fun printExceptionHandlingMessageForRecordPageInput() {
+fun printExceptionHandlingMessageForWrongInput(){
     println()
-    println("⚾ 게임을 시작하려면 1번 종료하시려면 2번을 입력해주세요")
+    println("⚾ 올바른 숫자를 입력해주세요")
     println()
 }
-fun printGuideMessageForRetryOrEnd() {
-    println("1.다시 도전하기 2.게임 종료하기\uD83D\uDE4B\u200D♂\uFE0F")
+fun printGuideMessageForBackToHomeMenu() {
+    println("1.이전 화면으로 돌아가기 ◀\uFE0F")
 }
 fun printCautionMessageAboutInitializeRecord() {
     println("⚠\uFE0F 기록이 초기화됩니다. 정말 종료하시겠습니까?")
@@ -66,10 +60,6 @@ fun printHowToPitchGuideMessage() {
     println("투구 방법은 3자리 숫자 입력입니다!")
     println("⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾")
     println()
-}
-fun printExceptionHandlingMessageForFinalChoice() {
-    println("올바른 숫자를 입력해주세요")
-    println("정말 종료하시려면 1번 다시 시작하시려면 2번")
 }
 fun giveGradeForTryNumber(num: Int): String {
     when (num) {

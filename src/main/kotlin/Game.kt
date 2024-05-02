@@ -1,5 +1,7 @@
 package org.example
 
+import org.example.functions.*
+
 class NumberBaseballGame {
     var countTryGame = 0
     val grade = ""
@@ -14,6 +16,7 @@ class NumberBaseballGame {
 
             checkInputIsCorrect@ while (true) {
                 val thisGameRandomNumber = randomNumberString
+                println(thisGameRandomNumber)
                 while (true) {
                     var countStrike = 0
                     val countBall = 0
@@ -57,31 +60,21 @@ class NumberBaseballGame {
         }
         saveTryNumberList += countTryNumber
     }
-    fun recording(){
+    fun printGradeByScore(){
         if (countTryGame == 0) {
             printNothingRecordMessage()
+            playGame()
         } else {
             printMessageAboutGradeAndRecord(countTryGame,saveTryNumberList,grade)
-            printGuideMessageForRetryOrEnd()
+            printGuideMessageForBackToHomeMenu()
             while (true) {
                 val getRecordingPageMenuSelectionNumber = readln()
                 when (getRecordingPageMenuSelectionNumber) {
                     "1" -> {
                         break
                     }
-                    "2" -> {
-                        printCautionMessageAboutInitializeRecord()
-                        val getFinalChoice = readln()
-                        when (getFinalChoice) {
-                            "1" -> break
-                            "2" -> break
-                            else -> {
-                                printExceptionHandlingMessageForFinalChoice()
-                            }
-                        }
-                    }
                     else -> {
-                        printExceptionHandlingMessageForRecordPageInput()
+                        printExceptionHandlingMessageForWrongInput()
                     }
 
                 }

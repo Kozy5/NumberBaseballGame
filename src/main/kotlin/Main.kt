@@ -1,28 +1,34 @@
 package org.example
 
-import java.util.*
-import kotlin.concurrent.timer
+import org.example.functions.printCautionMessageAboutInitializeRecord
+import org.example.functions.printExceptionHandlingMessageForWrongInput
+import org.example.functions.printGameAndMenuGuideMessage
+import org.example.functions.printMessageForGameEnd
 
 fun main() {
     val mainGame = NumberBaseballGame()
-    checkEndGame@ while (true) {
+
+    while (true) {
         printGameAndMenuGuideMessage()
         val getHomeMenuSelectionNumber = readln()
         when (getHomeMenuSelectionNumber) {
             "1" -> mainGame.playGame()
-            "2" -> mainGame.recording()
+            "2" -> mainGame.printGradeByScore()
             "3" -> {
-                if(mainGame.countTryGame == 0){
-                    printMessageForGameEnd() // 버그 해결
-                    break@checkEndGame
-                }else{
+                if (mainGame.countTryGame == 0) {
+                    printMessageForGameEnd()
+                    break
+                } else {
                     printCautionMessageAboutInitializeRecord()
-                    mainGame.recording()
+                    val getRecordMenuSelectionNumber = readln()
+                    when (getRecordMenuSelectionNumber) {
+                        "1" -> break
+                        "2" -> mainGame.playGame()
+                    }
                 }
-
             }
             else -> {
-                printExceptionHandlingMessageForHomeMenuInput()
+                printExceptionHandlingMessageForWrongInput()
             }
         }
     }
