@@ -25,13 +25,16 @@ fun main() {
                         "2" -> mainGame.playGame()
                     }
                 }
-            }
+            }  
              else -> {
                 printExceptionHandlingMessageForWrongInput()
             }
         }
     }
 }
+
+
+
 
 fun printGameAndMenuGuideMessage() {
     println("-------------------------------------")

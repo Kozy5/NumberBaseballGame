@@ -2,6 +2,7 @@ package org.example
 
 import org.example.functions.*
 import org.example.playGame.*
+import org.example.printGradeByScore.printGradeBasedTable
 import org.example.printGradeByScore.printGuideMessageForBackToHomeMenu
 import org.example.printGradeByScore.printMessageAboutGradeAndRecord
 import org.example.printGradeByScore.printNothingRecordMessage
@@ -10,7 +11,8 @@ class NumberBaseballGame {
     var countTryGame = 0
     val grade = ""
     val saveTryNumberList = mutableListOf<Int>()
-
+    var saveClearTimeList = mutableListOf<Int>()
+    var saveNicknameList = mutableListOf<String>()
 
     fun playGame(){
         var countTryNumber = 0
@@ -66,7 +68,8 @@ class NumberBaseballGame {
                         printCongratulatoryMessage()
 
                         val endTime = System.currentTimeMillis()/1000
-                        println(endTime - startTime)
+
+                        saveClearTimeList += (endTime.toInt() - startTime.toInt())
                         break@checkInputIsCorrect
 
                     }
@@ -74,14 +77,20 @@ class NumberBaseballGame {
             }
             break@thisGame
         }
+        println("닉네임을 입력해주세요!")
+        val getNickname = readln()
+        saveNicknameList += getNickname
         saveTryNumberList += countTryNumber
+
+
     }
     fun printGradeByScore(){
         if (countTryGame == 0) {
             printNothingRecordMessage()
             playGame()
         } else {
-            printMessageAboutGradeAndRecord(countTryGame,saveTryNumberList,grade)
+            printGradeBasedTable()
+            printMessageAboutGradeAndRecord(countTryGame,saveTryNumberList,saveClearTimeList,grade,saveNicknameList)
             printGuideMessageForBackToHomeMenu()
             while (true) {
                 val getRecordingPageMenuSelectionNumber = readln()
