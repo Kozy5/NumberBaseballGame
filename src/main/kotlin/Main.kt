@@ -5,16 +5,15 @@ import org.example.functions.printExceptionHandlingMessageForWrongInput
 import org.example.playGame.printMessageForGameEnd
 
 fun main() {
-    val mainGame = NumberBaseballGame()
-
+    val baseballGame = BaseballGame()
     while (true) {
         printGameAndMenuGuideMessage()
         val getHomeMenuSelectionNumber = readln()
         when (getHomeMenuSelectionNumber) {
-            "1" -> mainGame.playGame()
-            "2" -> mainGame.printGradeByScore()
+            "1" -> baseballGame.playGame()
+            "2" -> baseballGame.printGradeByScore()
             "3" -> {
-                if (mainGame.countTryGame == 0) {
+                if (baseballGame.countTryGame == 0) {
                     printMessageForGameEnd()
                     break
                 } else {
@@ -22,10 +21,10 @@ fun main() {
                     val getRecordMenuSelectionNumber = readln()
                     when (getRecordMenuSelectionNumber) {
                         "1" -> break
-                        "2" -> mainGame.playGame()
+                        "2" -> baseballGame.playGame()
                     }
                 }
-            }  
+            }
              else -> {
                 printExceptionHandlingMessageForWrongInput()
             }

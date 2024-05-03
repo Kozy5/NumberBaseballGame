@@ -1,6 +1,6 @@
 package org.example.printGradeByScore
 
-fun giveScoreNyTryNumber(num: Int): Int {
+fun giveScoreByTryNumber(num: Int): Int {
     when (num) {
         1 -> return 50
         2 -> return 45
@@ -72,15 +72,15 @@ fun printGradeBasedTable(){
 
 }
 fun printMessageAboutGradeAndRecord(tryGame:Int,saveTryNumberList: MutableList<Int>,saveClearTimeList:MutableList<Int>, grade:String,saveNicknameList:MutableList<String>){
-    var giveScoreNyTryNumber = 0
+    var giveScoreByTryNumber = 0
     var giveScoreByClearTime = 0
     var totalScore=0
     var grade = grade
     for (i in 0..tryGame - 1) {
-        giveScoreNyTryNumber = giveScoreNyTryNumber(saveTryNumberList[i])
+        giveScoreByTryNumber = giveScoreByTryNumber(saveTryNumberList[i])
         giveScoreByClearTime = giveScoreByClearTime(saveClearTimeList[i])
-        totalScore = giveScoreNyTryNumber+giveScoreByClearTime
-        grade = giveGradeForTotalScore(giveScoreNyTryNumber+giveScoreByClearTime)
+        totalScore = giveScoreByTryNumber+giveScoreByClearTime
+        grade = giveGradeForTotalScore(giveScoreByTryNumber+giveScoreByClearTime)
         println("${i + 1} 번째 게임 / 시도 횟수 : ${saveTryNumberList[i]} / 클리어 타임:${saveClearTimeList[i]} / 합산 점수:${totalScore} / 티어:${grade} / 닉네임: ${saveNicknameList[i]}")
     }
 }

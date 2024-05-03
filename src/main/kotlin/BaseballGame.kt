@@ -7,9 +7,9 @@ import org.example.printGradeByScore.printGuideMessageForBackToHomeMenu
 import org.example.printGradeByScore.printMessageAboutGradeAndRecord
 import org.example.printGradeByScore.printNothingRecordMessage
 
-class NumberBaseballGame {
+class BaseballGame {
     var countTryGame = 0
-    val grade = ""
+
     val saveTryNumberList = mutableListOf<Int>()
     var saveClearTimeList = mutableListOf<Int>()
     var saveNicknameList = mutableListOf<String>()
@@ -18,6 +18,7 @@ class NumberBaseballGame {
         var countTryNumber = 0
         printGameStartMessage()
         val startTime = System.currentTimeMillis()/1000
+        
         thisGame@ while (true) {
             countTryGame += 1
             val randomNumberString = randomNumberGenerator()
@@ -71,7 +72,6 @@ class NumberBaseballGame {
 
                         saveClearTimeList += (endTime.toInt() - startTime.toInt())
                         break@checkInputIsCorrect
-
                     }
                 }
             }
@@ -81,10 +81,10 @@ class NumberBaseballGame {
         val getNickname = readln()
         saveNicknameList += getNickname
         saveTryNumberList += countTryNumber
-
-
+        println("기록이 등록되었습니다.")
     }
     fun printGradeByScore(){
+        val grade = ""
         if (countTryGame == 0) {
             printNothingRecordMessage()
             playGame()
